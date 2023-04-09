@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Mametosca";
+  src: url("./fonts/header.otf");
+}
+:root {
+  --header-secondary: #33a1fe;
+  --gradient-primary: #f207eb;
+  --gradient-secondary: #3c0095;
+  --gradient-tertiary: #aa40e5;
+  --magenta: #c62f7a;
+
+  --heading-font: "Mametosca", sans-serif;
+
+  --header-height: 12vh;
+}

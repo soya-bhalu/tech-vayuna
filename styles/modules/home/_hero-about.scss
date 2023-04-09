@@ -1,0 +1,68 @@
+.hero-about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  .img-container {
+    width: 40%;
+    aspect-ratio: 1;
+    position: relative;
+    .glass-text {
+      position: absolute;
+      bottom: 0;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(178, 86, 175, 0.4);
+      // border: 2px solid var(--gradient-primary);
+      border-radius: 15px;
+      overflow: hidden;
+      backdrop-filter: blur(15px);
+      z-index: 1;
+      padding: 50px 0;
+      span {
+        margin: 0 20px;
+        font-size: 1.5rem;
+        text-shadow: 0 0 5px var(--gradient-primary);
+        // filter: drop-shadow(0 0 5px var(--gradient-primary));
+      }
+    }
+    img {
+      object-fit: contain;
+    }
+    &::before {
+      @include gradient-blur(90%);
+    }
+  }
+  .about-text {
+    width: 50%;
+    h3 {
+      color: var(--header-secondary);
+      font-size: 1.1rem;
+    }
+    h2 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    p {
+      margin: 2vh 0 4vh 0;
+    }
+    .read-more {
+      display: block;
+      padding: 10px 40px;
+      font-size: 1.2rem;
+      width: fit-content;
+      text-decoration: none;
+      background: linear-gradient(black, black) padding-box,
+        linear-gradient(
+            to right,
+            var(--gradient-primary),
+            var(--gradient-secondary)
+          )
+          border-box;
+      border-radius: 25px;
+      border: 3px solid transparent;
+    }
+  }
+}

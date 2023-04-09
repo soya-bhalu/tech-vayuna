@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@mixin gradient-blur($size) {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  height: $size;
+  width: auto;
+  aspect-ratio: 1;
+  filter: blur(100px);
+  border-radius: 44% 56% 38% 62% / 26% 54% 46% 74%;
+  background: conic-gradient(
+    var(--gradient-primary),
+    var(--gradient-primary),
+    var(--gradient-primary),
+    var(--gradient-secondary),
+    var(--gradient-secondary),
+    var(--gradient-secondary),
+    var(--gradient-tertiary),
+    var(--gradient-tertiary)
+  );
+  opacity: 0.8;
+}
