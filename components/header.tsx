@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header>
       <div className="img-container logo ">
-        <Image src="/assets/images/hero-img.png" alt="Logo" fill></Image>
+        <Image src="/assets/images/hero-img.png" alt="Logo" fill priority></Image>
       </div>
 
       <nav>
