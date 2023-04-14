@@ -1,7 +1,9 @@
 @import "./globals";
 @import "./variables";
 
-@import "./home";
+@import "./pages/home";
+@import "./pages/events";
+@import "./pages/team";
 
 @import "./modules/home/hero-banner";
 @import "./modules/home/hero-about";
@@ -9,3 +11,4 @@
 @import "./modules/events/event-card";
 
 @import "./components/header";
+@import "./components/footer";

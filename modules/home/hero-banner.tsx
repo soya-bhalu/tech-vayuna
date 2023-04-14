@@ -1,13 +1,17 @@
 import Image from "next/image";
 import { heading, subHeading, heroPara } from "./text";
 import Link from "next/link";
+// import { useContext } from "react";
+import { AppConst } from "@/context/app-context";
 
 export default function HeroBanner() {
+  // const [c] = useContext(AppConst);
+
   return (
     <div className="hero-banner">
       <div className="hero-text">
         <h3>{subHeading}</h3>
-        <h1>{heading}</h1>
+        {/* <h1>{c.commonData.clubName}</h1> */}
         <p>{heroPara}</p>
         <Link className="explore-btn" href="/">
           Explore Now

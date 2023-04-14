@@ -1,6 +1,18 @@
 import "@/styles/style.scss";
 import type { AppProps } from "next/app";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import Appcontext from "@/context/app-context";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    // <Appcontext>
+    <>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </>
+
+    // </Appcontext>
+  );
 }

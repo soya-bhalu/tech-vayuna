@@ -26,7 +26,7 @@ export default function MainEvent() {
   useEffect(() => {
     let observer: undefined | IntersectionObserver = undefined;
     if (imgRef.current && textRef.current) {
-      const intersectionOptions: IntersectionObserverInit = { threshold: 0.2 };
+      const intersectionOptions: IntersectionObserverInit = { threshold: 0 };
       observer = new IntersectionObserver(
         intersectionCallBack,
         intersectionOptions
@@ -39,7 +39,7 @@ export default function MainEvent() {
         observer.disconnect();
       }
     };
-  }, [imgRef, textRef]);
+  }, [imgRef, textRef, intersectionCallBack]);
 
   return (
     <div className="upcoming-event">
