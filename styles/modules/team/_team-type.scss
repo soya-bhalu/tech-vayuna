@@ -1,0 +1,24 @@
+.team-type-container {
+  margin: 4vh 5vw;
+  .heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    h1 {
+      width: 15%;
+      font-size: 2.2rem;
+    }
+    .line {
+      height: 4px;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  .cards-wrapper {
+    margin: 3vh 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+  }
+}

@@ -1,36 +1,37 @@
+import { GetServerSideProps } from "next";
 import gqlclient from "@/gql/client";
-import { gql } from "graphql-request";
+import { allEventDetails } from "@/gql/queries";
 import EventCards from "@/modules/events/event-cards";
 import MainEvent from "@/modules/events/main-event";
-import type { GetServerSideProps } from "next";
-import { soloEventDeets } from "../../gql/queries";
 
-export default function Events({ eventData }: any) {
-  console.log("log this", eventData);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const pastEventData: any = await gqlclient.request(allEventDetails, { eventType: "past" });
+  const upcomingEventData: any = await gqlclient.request(allEventDetails, { eventType: "upcoming" });
+  const eventDetails = {
+    upcomingSingleEvent: upcomingEventData.eventCollection.items,
+    pastSingleEvent: pastEventData.eventCollection.items
+  };
+  return {
+    props: { eventDetails }
+  };
+};
 
-  // const soloDetails = eventData.eventNameCollection.items;
-
-  // return <></>;
+export default function index({ eventDetails }: { eventDetails: any }) {
+  const { pastSingleEvent } = eventDetails;
+  const { upcomingSingleEvent } = eventDetails;
   return (
     <div className="events-mainpage">
-      <MainEvent />
-      <div className="past-heading-container">
-        <h3 className="past-event-heading">Past Events</h3>
-        <div className="line" title="line" />
+      <div className="heading-container">
+        <h1 className="event-heading">Upcoming Events</h1>
+        <div className="line" title="line"></div>
       </div>
-      <EventCards eventData={eventData} />
+      <MainEvent data={upcomingSingleEvent} />
+
+      <div className="heading-container">
+        <h1 className="event-heading">Past Events</h1>
+        <div className="line" title="line"></div>
+      </div>
+      <EventCards data={pastSingleEvent} />
     </div>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const event = (await gqlclient.request(soloEventDeets)) ?? {};
-
-  const eventDeets = event.eventNameCollection.items;
-
-  return {
-    props: {
-      eventData: eventDeets,
-    },
-  };
-};

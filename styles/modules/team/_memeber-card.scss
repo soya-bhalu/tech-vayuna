@@ -1,0 +1,51 @@
+.card-container {
+  height: 450px;
+  width: 320px;
+  background: url("/assets/images/card-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .img-container {
+    height: 60%;
+    width: 85%;
+    border: 5px solid white;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom: none;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+    }
+  }
+  .socials {
+    width: 85%;
+    border: 5px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    a {
+      svg {
+        color: white;
+        font-size: 2rem;
+        stroke-width: 2px;
+      }
+      margin: 1vh 0;
+    }
+  }
+  h3 {
+    width: 85%;
+    border: 5px solid white;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 0;
+    font-size: 1.6rem;
+  }
+}

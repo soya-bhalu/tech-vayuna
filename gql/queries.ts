@@ -1,25 +1,74 @@
 import { gql } from "graphql-request";
 
-export const soloEventDeets = gql`
-  query {
-    eventNameCollection {
+export const allEventDetails = gql`
+  query ($eventType: String!) {
+    eventCollection(where: { eventType: { type_contains: $eventType } }) {
       items {
-        eventName
-        eventDescription
+        title
+        getDate
+        smallDescription
+        registrationLink
+        eventPicture {
+          url
+        }
       }
     }
   }
 `;
 
-// interface eventDetailsType {
-//   eventName: string;
-//   eventDescription: string;
-// }
+export const memberDetails = gql`
+  query ($memType: String!) {
+    memberCollection(where: { memberType: { title_contains: $memType } }, order: name_ASC) {
+      items {
+        name
+        profilePicture {
+          url
+        }
+        linkedIn
+        insta
+      }
+    }
+  }
+`;
 
-// interface eventItemsType {
-//   items: eventDetailsType[];
-// }
+export const singleEventDetails = gql`
+  query ($eventName: String!) {
+    eventCollection(where: { title_contains: $eventName }, limit: 1) {
+      items {
+        title
+        getDate
+        smallDescription
+        registrationLink
+        description {
+          json
+          links {
+            assets {
+              block {
+                sys {
+                  id
+                }
+                url
+                description
+                height
+                width
+              }
+            }
+          }
+        }
+        eventPicture {
+          url
+        }
+      }
+    }
+  }
+`;
 
-// interface eventCollectionType {
-//   eventNameCollection: eventItemsType[];
-// }
+export const getAllEventNames = gql`
+  query {
+    eventCollection {
+      items {
+        title
+      }
+    }
+  }
+`;

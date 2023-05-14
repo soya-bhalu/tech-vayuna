@@ -2,13 +2,16 @@
 @import "./variables";
 
 @import "./pages/home";
-@import "./pages/events";
 @import "./pages/team";
+@import "./pages/events/events";
+@import "./pages/events/[event]";
 
 @import "./modules/home/hero-banner";
 @import "./modules/home/hero-about";
 @import "./modules/events/main-event";
 @import "./modules/events/event-card";
+@import "./modules/team/memeber-card";
+@import "./modules/team/team-type";
 
 @import "./components/header";
 @import "./components/footer";
