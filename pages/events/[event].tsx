@@ -77,7 +77,7 @@ export default function Event({ data }: { data: any }) {
   };
   const event = data.eventCollection.items[0];
   return (
-    <div className="event-single-page">
+    <section className="event-single-page">
       <div className="img-container">
         <Image src={event.eventPicture.url} alt={event.title} fill />
       </div>
@@ -96,6 +96,6 @@ export default function Event({ data }: { data: any }) {
       <div className="rich-text-desc">
         {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
       </div>
-    </div>
+    </section>
   );
 }

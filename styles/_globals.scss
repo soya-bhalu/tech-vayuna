@@ -6,9 +6,30 @@
   color: white;
 }
 
+// #__next{
+
+// }
+
 body {
   background-color: black;
+  padding-bottom: var(--footer-height);
   position: relative;
+  &::before {
+    content: "";
+    background-image: url("../public/assets/images/heroBg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+section {
+  padding-top: var(--header-height);
 }
 
 .img-container {

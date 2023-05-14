@@ -20,7 +20,7 @@ export default function index({ eventDetails }: { eventDetails: any }) {
   const { pastSingleEvent } = eventDetails;
   const { upcomingSingleEvent } = eventDetails;
   return (
-    <div className="events-mainpage">
+    <section className="events-mainpage">
       <div className="heading-container">
         <h1 className="event-heading">Upcoming Events</h1>
         <div className="line" title="line"></div>
@@ -32,6 +32,6 @@ export default function index({ eventDetails }: { eventDetails: any }) {
         <div className="line" title="line"></div>
       </div>
       <EventCards data={pastSingleEvent} />
-    </div>
+    </section>
   );
 }

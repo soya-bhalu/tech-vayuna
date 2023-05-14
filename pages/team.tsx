@@ -26,10 +26,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export default function Team({ teamData }: { teamData: MemDeetsType["memDeetsProp"] }) {
   return (
-    <div className="team-container">
+    <section className="team-container">
       <TeamType data={teamData.heads} />
       <TeamType data={teamData.members} />
       <TeamType data={teamData.alumini} />
-    </div>
+    </section>
   );
 }

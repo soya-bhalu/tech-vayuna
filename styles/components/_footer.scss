@@ -22,6 +22,7 @@ footer {
       flex-direction: column;
       height: 100%;
       margin: 0 5%;
+      color: var(--header-color);
       a {
         text-decoration: none;
         margin: 2.5px 0;
@@ -54,9 +55,12 @@ footer {
     content: "";
     position: absolute;
     left: 0;
-    background: linear-gradient(
-      90deg,
-      var(--magenta),
+    background: conic-gradient(
+      var(--gradient-primary),
+      var(--gradient-primary),
+      var(--gradient-secondary),
+      var(--gradient-secondary),
+      var(--gradient-tertiary),
       var(--gradient-tertiary)
     );
     width: 100%;
