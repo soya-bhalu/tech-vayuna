@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { documentToReactComponents, NodeRenderer, Options } from "@contentful/rich-text-react-renderer";
@@ -77,25 +78,25 @@ export default function Event({ data }: { data: any }) {
   };
   const event = data.eventCollection.items[0];
   return (
-    <section className="event-single-page">
-      <div className="img-container">
-        <Image src={event.eventPicture.url} alt={event.title} fill />
-      </div>
-      <h1>{event.title}</h1>
-      <span className="date">{event.getDate}</span>
-      {event.registrationLink != null && event.registrationLink != "" && event.registrationLink != " " && (
-        <Link
-          className="registrationLink button"
-          href={event.registrationLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Register Now
-        </Link>
-      )}
-      <div className="rich-text-desc">
-        {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
-      </div>
-    </section>
+    <>
+      <Head>
+        <title>{` ${event.title} | ${commonData.clubName} Event`}</title>
+      </Head>
+      <section className="event-single-page">
+        <div className="img-container">
+          <Image src={event.eventPicture.url} alt={event.title} fill />
+        </div>
+        <h1>{event.title}</h1>
+        <span className="date">{event.getDate}</span>
+        {event.registrationLink != null && event.registrationLink != "" && event.registrationLink != " " && (
+          <Link className="registration-link" href={event.registrationLink} target="_blank" rel="noopener noreferrer">
+            Register Now
+          </Link>
+        )}
+        <div className="rich-text-desc">
+          {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
+        </div>
+      </section>
+    </>
   );
 }

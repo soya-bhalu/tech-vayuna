@@ -5,8 +5,10 @@
   column-gap: 5%;
   padding-bottom: 8vh;
   &::before {
-    @include gradient-blur(15%);
+    @include gradient-blur(600px);
+    left: -15%;
   }
+
   .cards {
     &.move-up {
       transform: translateY(4vh);
@@ -34,40 +36,67 @@
         object-fit: cover;
       }
     }
-    h4 {
+    h1 {
       text-transform: uppercase;
+      text-align: center;
       letter-spacing: 2px;
       word-spacing: 5px;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       margin: 15px 0;
+      font-weight: 800;
       filter: drop-shadow(0 0 1px var(--gradient-primary)) drop-shadow(0 0 1px var(--gradient-primary));
     }
     .event-details {
       padding: 10px;
       border-radius: 15px;
-      width: 90%;
       border: 2px solid white;
+      display: flex;
+      flex-direction: column;
+      span {
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      p {
+        word-break: break-all;
+      }
     }
     .btn-row {
       width: 100%;
-      padding: 20px 5% 0 5%;
+      margin-top: 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       a {
         display: block;
-        width: 40%;
+        width: 70%;
         padding: 10px 0;
         text-align: center;
         text-decoration: none;
         border-radius: 25px;
-        &:first-child {
-          border: 1px solid white;
-        }
-        &:last-child {
-          background: linear-gradient(90deg, var(--gradient-primary), var(--gradient-secondary));
-          box-shadow: 0 0 25px 0px var(--gradient-primary), 0 0 35px 0px transparent;
-        }
+        background: linear-gradient(90deg, var(--gradient-primary), var(--gradient-secondary));
+        box-shadow: 0 0 25px 0px var(--gradient-primary), 0 0 35px 0px transparent;
+      }
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .cards {
+      padding: 15px 5px;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    .cards {
+      margin: 10px 0;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+    .cards {
+      &.move-up {
+        transform: translateY(0vh);
+      }
+      &.move-down {
+        transform: translateY(0vh);
       }
     }
   }

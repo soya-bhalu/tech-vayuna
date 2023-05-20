@@ -38,7 +38,7 @@
   .about-text {
     width: 50%;
     h3 {
-      color: var(--header-secondary);
+      color: var(--header-color);
       font-size: 1.1rem;
     }
     h2 {
@@ -55,14 +55,25 @@
       width: fit-content;
       text-decoration: none;
       background: linear-gradient(black, black) padding-box,
-        linear-gradient(
-            to right,
-            var(--gradient-primary),
-            var(--gradient-secondary)
-          )
-          border-box;
+        linear-gradient(to right, var(--gradient-primary), var(--gradient-secondary)) border-box;
       border-radius: 25px;
       border: 3px solid transparent;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    .img-container {
+      width: 80%;
+    }
+    .about-text {
+      width: 100%;
+      margin-top: 2vh;
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        margin: 2vh 0 4vh 0;
+      }
     }
   }
 }

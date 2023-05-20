@@ -6,14 +6,11 @@
   color: white;
 }
 
-// #__next{
-
-// }
-
 body {
   background-color: black;
   padding-bottom: var(--footer-height);
   position: relative;
+  overflow-x: hidden;
   &::before {
     content: "";
     background-image: url("../public/assets/images/heroBg.jpg");
@@ -26,10 +23,14 @@ body {
     opacity: 0.5;
     z-index: -1;
   }
+  @media only screen and (max-width: 700px) {
+    padding-bottom: 65vh;
+  }
 }
 
 section {
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + 2vh);
+  margin-bottom: 4vh;
 }
 
 .img-container {

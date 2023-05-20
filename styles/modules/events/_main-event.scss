@@ -3,8 +3,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 6.5vh 5vw;
-  overflow-x: hidden;
-
   padding-bottom: 10vh;
   .img-container {
     opacity: 0;
@@ -14,7 +12,7 @@
     border: 2px solid var(--gradient-primary);
     border-radius: 30px;
     width: 450px;
-    height: 450px;
+    aspect-ratio: 1;
     position: relative;
     box-shadow: 0 0 20px 0 var(--gradient-secondary), 0 0 40px 0 var(--gradient-tertiary);
     background-color: var(--gradient-primary);
@@ -40,33 +38,103 @@
     transform: translateX(100%);
     transition: all 0.5s ease;
     width: 50%;
-
-    h3 {
-      color: var(--header-color);
-      font-size: 1.1rem;
+    &::before {
+      @include gradient-blur(300px);
+      top: -50%;
+      right: 35%;
+      z-index: -1;
     }
-    h2 {
+    // @include gradient-blur(90%);
+    h1 {
       font-size: 3rem;
       font-weight: 600;
     }
     p {
-      margin: 2vh 0 4vh 0;
+      margin: 2vh 0;
     }
-    .explore-btn {
-      padding: 10px 40px;
-      border-radius: 25px;
-      font-size: 1.2rem;
-      border: none;
-      background: linear-gradient(90deg, var(--gradient-primary), var(--gradient-secondary));
-      box-shadow: 0 0 25px 0px var(--gradient-primary), 0 0 35px 0px transparent;
-      cursor: pointer;
-      display: block;
+    .btn-row {
       width: fit-content;
-      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .explore-btn {
+        padding: 10px 40px;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        margin-right: 20px;
+        border: none;
+        background: linear-gradient(90deg, var(--gradient-primary), var(--gradient-secondary));
+        box-shadow: 0 0 25px 0px var(--gradient-primary), 0 0 35px 0px transparent;
+        cursor: pointer;
+        display: block;
+        width: fit-content;
+        text-decoration: none;
+      }
+      .explore-more {
+        display: block;
+        padding: 10px 40px;
+        font-size: 1.2rem;
+        width: fit-content;
+        text-decoration: none;
+        background: linear-gradient(black, black) padding-box,
+          linear-gradient(to right, var(--gradient-primary), var(--gradient-secondary)) border-box;
+        border-radius: 25px;
+        border: 3px solid transparent;
+      }
     }
   }
   .fade-in {
     opacity: 1;
     transform: translateX(0);
+  }
+  @media only screen and (max-width: 1400px) {
+    .event-text {
+      width: 40%;
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .img-container {
+      width: 320px;
+    }
+    .event-text {
+      .btn-row {
+        .explore-btn {
+          font-size: 1rem;
+          margin-right: 15px;
+        }
+        .explore-more {
+          font-size: 1rem;
+          padding: 10px 25px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    .img-container {
+      width: 60%;
+    }
+    .event-text {
+      margin-top: 6vh;
+      width: 90%;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .event-text {
+      .btn-row {
+        width: 100%;
+        flex-direction: column;
+        .explore-btn {
+          width: 90%;
+          text-align: center;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+        .explore-more {
+          width: 90%;
+          text-align: center;
+        }
+      }
+    }
   }
 }

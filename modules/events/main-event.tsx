@@ -40,7 +40,6 @@ export default function MainEvent({ data }: { data: any }) {
         <Image src={data[0].eventPicture.url} alt={`${data[0].title} image`} fill />
       </div>
       <div className="event-text" ref={textRef}>
-        <h3>Upcoming Event</h3>
         <h1>{data[0].title}</h1>
         <p>{data[0].smallDescription}</p>
         <div className="btn-row">

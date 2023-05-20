@@ -1,6 +1,8 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import gqlclient from "@/gql/client";
 import { memberDetails } from "@/gql/queries";
+import useCommonData from "@/hooks/use-common-data";
 import TeamType from "@/modules/team/team-type";
 import { MemDeetsType } from "@/types";
 
@@ -25,11 +27,19 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 export default function Team({ teamData }: { teamData: MemDeetsType["memDeetsProp"] }) {
+  const commonData = useCommonData();
+
   return (
-    <section className="team-container">
-      <TeamType data={teamData.heads} />
-      <TeamType data={teamData.members} />
-      <TeamType data={teamData.alumini} />
-    </section>
+    <>
+      <Head>
+        <title>{`${commonData.clubName} | Team`}</title>
+      </Head>
+
+      <section className="team-container">
+        <TeamType data={teamData.heads} />
+        <TeamType data={teamData.members} />
+        <TeamType data={teamData.alumini} />
+      </section>
+    </>
   );
 }

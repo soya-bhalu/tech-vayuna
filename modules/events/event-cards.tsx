@@ -48,7 +48,7 @@ export default function EventCards({ data }: { data: any }) {
             <h1>{event.title}</h1>
             <div className="event-details">
               <span>{event.getDate}</span>
-              <span>{event.smallDescription}</span>
+              <p>{event.smallDescription}</p>
             </div>
             <div className="btn-row">
               <Link className="explore-more" href={`/events/${event.title.replaceAll(" ", "-").toLowerCase()}`}>

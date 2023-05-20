@@ -17,10 +17,6 @@ export default function HeroBanner() {
       </div>
       <div className="hero-img img-container">
         <Image src="/assets/images/pink god.png" alt="Main hero image" fill />
-        <div className="glass-text">
-          <span>Members: 30</span>
-          <span>Alumini: 30</span>
-        </div>
       </div>
     </div>
   );
