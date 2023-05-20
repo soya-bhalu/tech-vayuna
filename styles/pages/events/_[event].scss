@@ -80,7 +80,7 @@
     padding: 30px;
     position: relative;
     &::after {
-      @include gradient-blur(650px);
+      @include gradient-blur(60%);
       top: 20vh;
       right: -10vw;
       z-index: -1;
