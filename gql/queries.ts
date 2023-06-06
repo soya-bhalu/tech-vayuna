@@ -72,3 +72,17 @@ export const getAllEventNames = gql`
     }
   }
 `;
+
+export const getClubLinks = gql`
+  query {
+    socialsCollection {
+      items {
+        clubInsta
+        clubLinkedin
+        tvTalkiesLink
+        phoneOne
+        phoneTwo
+      }
+    }
+  }
+`;

@@ -180,5 +180,10 @@
     .img-container {
       width: 80%;
     }
+    .rich-text-desc {
+      &::after {
+        display: none;
+      }
+    }
   }
 }
