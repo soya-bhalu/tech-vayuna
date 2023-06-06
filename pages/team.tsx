@@ -36,9 +36,9 @@ export default function Team({ teamData }: { teamData: MemDeetsType["memDeetsPro
       </Head>
 
       <section className="team-container">
-        <TeamType data={teamData.heads} />
-        <TeamType data={teamData.members} />
-        <TeamType data={teamData.alumini} />
+        <TeamType data={teamData.heads} title="Heads" />
+        <TeamType data={teamData.members} title="Members" />
+        <TeamType data={teamData.alumini} title="Alumini" />
       </section>
     </>
   );

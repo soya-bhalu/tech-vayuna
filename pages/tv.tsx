@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import gqlclient from "@/gql/client";
 import { getClubLinks } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
@@ -17,11 +18,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Tv(props: clubLinksType) {
   const commonData = useCommonData();
   return (
-    <section id="tv">
-      <h1>{commonData.clubName} Tv Talkies</h1>
+    <>
+      <Head>
+        <title>{`${commonData.clubName} | Tv`}</title>
+      </Head>
+      <section id="tv">
+        <h1>{commonData.clubName} Tv Talkies</h1>
 
-      <TvLink data={props} />
-      <TvAbout />
-    </section>
+        <TvLink data={props} />
+        <TvAbout />
+      </section>
+    </>
   );
 }

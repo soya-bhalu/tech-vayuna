@@ -8,12 +8,12 @@ const cardMapper = (data: memSkeletonType, index: number) => {
   );
 };
 
-export default function TeamType({ data }: { data: memSkeletonType[] }) {
+export default function TeamType({ data, title }: { data: memSkeletonType[]; title: string }) {
   return (
     <>
       <div className="team-type-container">
         <div className="heading-container">
-          <h1>Heads</h1>
+          <h1>{title}</h1>
           <div className="line" title="line"></div>
         </div>
         <div className="cards-wrapper">{data.map(cardMapper)}</div>
