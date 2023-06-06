@@ -5,7 +5,7 @@ import useCommonData from "@/hooks/use-common-data";
 export default function HeroAbout() {
   const commonData = useCommonData();
   return (
-    <div className="hero-about">
+    <div className="hero-about" id="about">
       <div className="hero-img img-container">
         <Image src="/assets/images/blue goddess.png" alt="Main hero image" fill />
       </div>

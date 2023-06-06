@@ -20,6 +20,7 @@
     &::before {
       @include gradient-blur(350px);
       left: 30%;
+      z-index: -1;
     }
     margin: 3vh 0;
     display: grid;

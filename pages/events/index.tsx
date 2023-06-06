@@ -5,10 +5,11 @@ import { allEventDetails } from "@/gql/queries";
 import UseCommonData from "@/hooks/use-common-data";
 import EventCards from "@/modules/events/event-cards";
 import MainEvent from "@/modules/events/main-event";
+import { EventDataType, EventDetailsType } from "@/types";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const pastEventData: any = await gqlclient.request(allEventDetails, { eventType: "past" });
-  const upcomingEventData: any = await gqlclient.request(allEventDetails, { eventType: "upcoming" });
+  const pastEventData: EventDataType = await gqlclient.request(allEventDetails, { eventType: "past" });
+  const upcomingEventData: EventDataType = await gqlclient.request(allEventDetails, { eventType: "upcoming" });
   const eventDetails = {
     upcomingSingleEvent: upcomingEventData.eventCollection.items,
     pastSingleEvent: pastEventData.eventCollection.items
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default function index({ eventDetails }: { eventDetails: any }) {
+export default function index({ eventDetails }: { eventDetails: EventDetailsType }) {
   const commonData = UseCommonData();
   const { pastSingleEvent } = eventDetails;
   const { upcomingSingleEvent } = eventDetails;
@@ -26,6 +27,7 @@ export default function index({ eventDetails }: { eventDetails: any }) {
     <>
       <Head>
         <title>{`${commonData.clubName} | Events`}</title>
+        <meta name="description" content={`${commonData.clubName} | Events`} />
       </Head>
       <section className="events-mainpage">
         <div className="heading-container">

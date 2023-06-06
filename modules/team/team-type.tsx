@@ -1,14 +1,14 @@
-import { memSkeletonType } from "@/types";
+import { MemSkeletonType } from "@/types";
 import MemberCard from "./member-card";
 
-const cardMapper = (data: memSkeletonType, index: number) => {
+const cardMapper = (data: MemSkeletonType, index: number) => {
   const urlObj = { url: data.profilePicture.url };
   return (
     <MemberCard name={data.name} insta={data.insta} linkedIn={data.linkedIn} profilePicture={urlObj} key={index} />
   );
 };
 
-export default function TeamType({ data, title }: { data: memSkeletonType[]; title: string }) {
+export default function TeamType({ data, title }: { data: MemSkeletonType[]; title: string }) {
   return (
     <>
       <div className="team-type-container">

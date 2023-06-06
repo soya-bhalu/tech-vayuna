@@ -7,11 +7,12 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import gqlclient from "@/gql/client";
 import { getAllEventNames, singleEventDetails } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
+import { SingleDataType, SingleEventDataType } from "@/types";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const url = (params?.event as string) ?? "404";
-  const eventData: any = await gqlclient.request(singleEventDetails, {
+  const eventData: SingleDataType = await gqlclient.request(singleEventDetails, {
     eventName: url.replaceAll("-", " ")
   });
   return {
@@ -23,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths = async () => {
   const eventNames: string[] = (
     ((await gqlclient.request(getAllEventNames)) as Record<string, any>)?.eventCollection?.items || []
-  ).map((item: any) => item.title);
+  ).map((item: { title: string }) => item.title);
   const eventPaths = eventNames.map((name) => ({ params: { event: name.replaceAll(" ", "-").toLowerCase() } }));
 
   return {
@@ -32,7 +33,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default function Event({ data }: { data: any }) {
+export default function Event({ data }: { data: SingleDataType }) {
+  // console.log("ye", data);
   const commonData = useCommonData();
   const renderOptions = (links: any): Options => {
     const assetMap = links.assets.block;
@@ -43,7 +45,7 @@ export default function Event({ data }: { data: any }) {
       }
     };
   };
-  function getAsset(arr: any, id: any) {
+  function getAsset(arr: any, id: number) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].sys.id == id) {
         return arr[i];
@@ -76,11 +78,12 @@ export default function Event({ data }: { data: any }) {
     };
     return temp;
   };
-  const event = data.eventCollection.items[0];
+  const event: SingleEventDataType = data.eventCollection.items[0];
   return (
     <>
       <Head>
         <title>{` ${event.title} | ${commonData.clubName} Event`}</title>
+        <meta name="description" content={`${commonData.clubName} | ${event.smallDescription}`} />
       </Head>
       <section className="event-single-page">
         <div className="img-container">

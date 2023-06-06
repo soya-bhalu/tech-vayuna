@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import useCommonData from "@/hooks/use-common-data";
-import { clubLinksType } from "@/types";
+import { ClubLinksType } from "@/types";
 
-export default function TvLink({ data }: { data: clubLinksType }) {
+export default function TvLink({ data }: { data: ClubLinksType }) {
   const commonData = useCommonData();
   return (
     <div className="tv-link">

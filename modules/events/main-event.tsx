@@ -1,8 +1,9 @@
 import { useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SmallDescType } from "@/types";
 
-export default function MainEvent({ data }: { data: any }) {
+export default function MainEvent({ data }: { data: SmallDescType[] }) {
   const imgRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -37,16 +38,20 @@ export default function MainEvent({ data }: { data: any }) {
   return (
     <div className="upcoming-event">
       <div className="img-container" ref={imgRef}>
-        <Image src={data[0].eventPicture.url} alt={`${data[0].title} image`} fill />
+        <Image
+          src={data[0]?.eventPicture?.url ?? "/assets/images/pink god.png"}
+          alt={`${data[0]?.title} image` ?? ""}
+          fill
+        />
       </div>
       <div className="event-text" ref={textRef}>
-        <h1>{data[0].title}</h1>
-        <p>{data[0].smallDescription}</p>
+        <h1>{data[0]?.title ?? "Upcoming Event"}</h1>
+        <p>{data[0]?.smallDescription ?? " "}</p>
         <div className="btn-row">
-          <Link className="explore-btn" href={data[0].registrationLink}>
+          <Link className="explore-btn" href={data[0]?.registrationLink ?? "/"}>
             Register
           </Link>
-          <Link className="explore-more" href={`/events/${data[0].title.replaceAll(" ", "-").toLowerCase()}`}>
+          <Link className="explore-more" href={`/events/${(data[0]?.title ?? "").replaceAll(" ", "-").toLowerCase()}`}>
             Read More
           </Link>
         </div>

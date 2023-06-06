@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="about-us">
           <span>Site Map</span>
           <Link href="/">Home</Link>
-          <Link href="/">About</Link>
+          <Link href="/#about">About</Link>
           <Link href="/events">Events</Link>
           <Link href="/team">Team</Link>
         </div>

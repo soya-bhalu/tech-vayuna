@@ -27,7 +27,7 @@ export default function Header() {
         <Link href="/" onClick={handleClick}>
           Home
         </Link>
-        <Link href="/" onClick={handleClick}>
+        <Link href="/#about" onClick={handleClick}>
           About
         </Link>
         <Link href="/tv" onClick={handleClick}>
