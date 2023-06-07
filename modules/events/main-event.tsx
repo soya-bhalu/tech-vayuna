@@ -8,16 +8,18 @@ export default function MainEvent({ data }: { data: SmallDescType[] }) {
   const textRef = useRef<HTMLDivElement>(null);
 
   const intersectionCallBack: IntersectionObserverCallback = useCallback((entries) => {
-    const intersecting: boolean = entries[0]?.isIntersecting ?? false;
-    entries.forEach(() => {
-      if (intersecting) {
-        imgRef.current?.classList.add("fade-in");
-        textRef.current?.classList.add("fade-in");
-      } else {
-        imgRef.current?.classList.remove("fade-in");
-        textRef.current?.classList.remove("fade-in");
-      }
-    });
+    if (window?.innerWidth > 900) {
+      const intersecting: boolean = entries[0]?.isIntersecting ?? false;
+      entries.forEach(() => {
+        if (intersecting) {
+          imgRef.current?.classList.add("fade-in");
+          textRef.current?.classList.add("fade-in");
+        } else {
+          imgRef.current?.classList.remove("fade-in");
+          textRef.current?.classList.remove("fade-in");
+        }
+      });
+    }
   }, []);
 
   useEffect(() => {

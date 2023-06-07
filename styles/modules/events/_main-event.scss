@@ -110,6 +110,14 @@
     }
   }
   @media only screen and (max-width: 900px) {
+    .img-container {
+      opacity: 1;
+      transform: translate(0);
+    }
+    .event-text {
+      opacity: 1;
+      transform: translate(0);
+    }
     flex-direction: column;
     .img-container {
       width: 60%;
