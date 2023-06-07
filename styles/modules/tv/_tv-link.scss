@@ -1,0 +1,85 @@
+.tv-link {
+  background: url("/assets/images/card-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  .img-container {
+    border: 2px solid white;
+    border-radius: 30px;
+    height: 90%;
+    width: 40%;
+    img {
+      object-fit: cover;
+    }
+  }
+  .text-container {
+    margin-left: 50px;
+    h2 {
+      color: var(--header-color);
+      font-size: 2.5rem;
+    }
+    p {
+      margin-top: 10px;
+      text-align: justify;
+    }
+    .btn-row {
+      width: 50%;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .reel-btn {
+        display: block;
+        width: 45%;
+        padding: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 25px;
+        background: linear-gradient(90deg, var(--gradient-primary), var(--gradient-secondary));
+        box-shadow: 0 0 25px 0px var(--gradient-primary), 0 0 35px 0px transparent;
+      }
+      .insta-btn {
+        display: block;
+        width: 45%;
+        padding: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 25px;
+        border: 2px solid white;
+      }
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .text-container {
+      width: 50%;
+      .btn-row {
+        width: 90%;
+      }
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    height: auto;
+    .img-container {
+      margin-top: 2vh;
+      width: 90%;
+      aspect-ratio: 1;
+    }
+    .text-container {
+      margin-left: 0;
+      width: 90%;
+      h2 {
+        font-size: 5vw;
+        margin-top: 2vw;
+      }
+      .btn-row {
+        width: 100%;
+        margin-bottom: 3vw;
+      }
+    }
+  }
+}

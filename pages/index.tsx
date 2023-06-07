@@ -8,7 +8,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{`${commonData.clubName} | Home`}</title>
+        <title>{`${commonData?.clubName} | Home`}</title>
+        <meta name="description" content={commonData?.aboutClub} />
       </Head>
       <section id="home">
         <HeroBanner />

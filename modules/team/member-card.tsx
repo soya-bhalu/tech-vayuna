@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { memSkeletonType } from "@/types";
+import { MemSkeletonType } from "@/types";
 
-export default function MemberCard(prop: memSkeletonType) {
+export default function MemberCard(prop: MemSkeletonType) {
   const { insta, linkedIn, name, profilePicture } = prop;
 
   return (

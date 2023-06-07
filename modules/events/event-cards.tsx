@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SmallDescType } from "@/types";
 
-export default function EventCards({ data }: { data: any }) {
+export default function EventCards({ data }: { data: SmallDescType[] }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const intersectionCallBack: IntersectionObserverCallback = useCallback((entries) => {

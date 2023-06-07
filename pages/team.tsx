@@ -4,16 +4,16 @@ import gqlclient from "@/gql/client";
 import { memberDetails } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
 import TeamType from "@/modules/team/team-type";
-import { MemDeetsType } from "@/types";
+import { MemDeetsType, TeamDataType } from "@/types";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const headMem: any = await gqlclient.request(memberDetails, {
+  const headMem: TeamDataType = await gqlclient.request(memberDetails, {
     memType: "head"
   });
-  const memMem: any = await gqlclient.request(memberDetails, {
+  const memMem: TeamDataType = await gqlclient.request(memberDetails, {
     memType: "member"
   });
-  const alumMem: any = await gqlclient.request(memberDetails, {
+  const alumMem: TeamDataType = await gqlclient.request(memberDetails, {
     memType: "alumini"
   });
   const members = {
@@ -33,12 +33,13 @@ export default function Team({ teamData }: { teamData: MemDeetsType["memDeetsPro
     <>
       <Head>
         <title>{`${commonData.clubName} | Team`}</title>
+        <meta name="description" content={`${commonData.clubName} | Team`} />
       </Head>
 
       <section className="team-container">
-        <TeamType data={teamData.heads} />
-        <TeamType data={teamData.members} />
-        <TeamType data={teamData.alumini} />
+        <TeamType data={teamData.heads} title="Heads" />
+        <TeamType data={teamData.members} title="Members" />
+        <TeamType data={teamData.alumini} title="Alumini" />
       </section>
     </>
   );

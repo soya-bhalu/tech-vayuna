@@ -3,6 +3,7 @@
 
 @import "./pages/home";
 @import "./pages/team";
+@import "./pages/tv";
 @import "./pages/events/events";
 @import "./pages/events/[event]";
 
@@ -12,6 +13,8 @@
 @import "./modules/events/event-card";
 @import "./modules/team/memeber-card";
 @import "./modules/team/team-type";
+@import "./modules/tv/tv-link";
+@import "./modules/tv/tv-about";
 
 @import "./components/header";
 @import "./components/footer";

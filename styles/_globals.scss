@@ -11,6 +11,7 @@ body {
   padding-bottom: var(--footer-height);
   position: relative;
   overflow-x: hidden;
+  width: 100vw;
   &::before {
     content: "";
     background-image: url("../public/assets/images/heroBg.jpg");
@@ -31,6 +32,7 @@ body {
 section {
   padding-top: calc(var(--header-height) + 2vh);
   margin-bottom: 4vh;
+  width: 100%;
 }
 
 .img-container {

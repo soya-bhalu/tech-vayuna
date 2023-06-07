@@ -1,0 +1,16 @@
+#tv {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  h1 {
+    font-size: 4em;
+    font-family: "Mametosca", sans-serif;
+    text-align: center;
+    color: var(--header-color);
+    margin: 2vh 0 5vh 0;
+  }
+  @media only screen and (max-width: 900px) {
+    h1 {
+      font-size: 3em;
+    }
+  }
+}

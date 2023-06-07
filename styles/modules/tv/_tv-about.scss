@@ -1,0 +1,64 @@
+.tv-about {
+  .pic-div {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5em;
+    .tv-cards {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      .pic {
+        border: 2px solid white;
+        height: 100%;
+        width: 100%;
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 10px;
+      }
+      .word {
+        font-size: 1.8rem;
+        font-family: "Mametosca", sans-serif;
+        text-align: center;
+        color: var(--header-color);
+        margin-top: 1vh;
+      }
+    }
+  }
+  .heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 4vh;
+    h2 {
+      font-size: 2.2rem;
+      margin-right: 5%;
+      color: var(--header-color);
+    }
+    .line {
+      width: 100%;
+      height: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  p {
+    text-align: justify;
+    margin-bottom: 4vh;
+    &::before {
+      right: 20%;
+      z-index: -1;
+      @include gradient-blur(300px);
+    }
+  }
+  @media only screen and (max-width: 750px) {
+    height: fit-content;
+    .pic-div {
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: 10vh;
+    }
+  }
+}
