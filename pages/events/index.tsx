@@ -1,13 +1,13 @@
-import { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import gqlclient from "@/gql/client";
 import { allEventDetails } from "@/gql/queries";
 import UseCommonData from "@/hooks/use-common-data";
 import EventCards from "@/modules/events/event-cards";
 import MainEvent from "@/modules/events/main-event";
-import { EventDataType, EventDetailsType } from "@/types";
+import type { EventDataType, EventDetailsType } from "@/types";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const pastEventData: EventDataType = await gqlclient.request(allEventDetails, { eventType: "past" });
   const upcomingEventData: EventDataType = await gqlclient.request(allEventDetails, { eventType: "upcoming" });
   const eventDetails = {
@@ -15,7 +15,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     pastSingleEvent: pastEventData.eventCollection.items
   };
   return {
-    props: { eventDetails }
+    props: { eventDetails },
+    revalidate: 60 * 60 * 6
   };
 };
 

@@ -1,12 +1,12 @@
-import { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import gqlclient from "@/gql/client";
 import { memberDetails } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
 import TeamType from "@/modules/team/team-type";
-import { MemDeetsType, TeamDataType } from "@/types";
+import type { MemDeetsType, TeamDataType } from "@/types";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const headMem: TeamDataType = await gqlclient.request(memberDetails, {
     memType: "head"
   });
@@ -22,7 +22,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     alumini: alumMem.memberCollection.items
   };
   return {
-    props: { teamData: members }
+    props: { teamData: members },
+    revalidate: 60 * 60 * 6
   };
 };
 

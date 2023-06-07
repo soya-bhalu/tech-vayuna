@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import gqlclient from "@/gql/client";
 import { getAllEventNames, singleEventDetails } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
-import { SingleDataType, SingleEventDataType } from "@/types";
+import type { SingleDataType, SingleEventDataType } from "@/types";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;

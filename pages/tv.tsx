@@ -1,17 +1,18 @@
-import { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import gqlclient from "@/gql/client";
 import { getClubLinks } from "@/gql/queries";
 import useCommonData from "@/hooks/use-common-data";
 import TvAbout from "@/modules/tv/tv-about";
 import TvLink from "@/modules/tv/tv-link";
-import { ClubLinksType, LinksDataType } from "@/types";
+import type { ClubLinksType, LinksDataType } from "@/types";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const links: LinksDataType = await gqlclient.request(getClubLinks);
   const linkData = links.socialsCollection.items[0];
   return {
-    props: linkData
+    props: linkData,
+    revalidate: 60 * 60 * 6
   };
 };
 
