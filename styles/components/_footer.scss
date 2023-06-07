@@ -38,16 +38,17 @@ footer {
       align-items: flex-end;
       width: 12.5%;
       .img-container {
-        width: 70px;
-        height: 70px;
+        width: 120px;
+        height: 120px;
         img {
           object-fit: contain;
+          filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 1px rgba(0, 0, 0, 1));
         }
       }
       .click-links {
         display: flex;
         flex-direction: column;
-        margin: 20px 0;
+        margin: 10px 0;
         text-align: end;
         a {
           text-decoration: none;
