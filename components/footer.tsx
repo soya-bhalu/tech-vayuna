@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className="visual-links">
           <Link className="img-container" href="/">
-            <Image src="/assets/images/pink god.png" alt="logo" fill />
+            <Image src="/assets/images/logo.png" alt="logo" fill />
           </Link>
           <div className="click-links">
             <Link href="/">Tech Vayuna</Link>

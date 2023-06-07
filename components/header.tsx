@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header>
       <Link className="img-container logo" href="/">
-        <Image src="/assets/images/hero-img.png" alt="Logo" fill priority></Image>
+        <Image src="/assets/images/logo.png" alt="Logo" fill priority></Image>
       </Link>
 
       <div className={`hamburger ${navState ? "active" : "inactive"}`} title="hamburger lines" onClick={handleClick}>
