@@ -11,7 +11,7 @@ export default function HeroBanner() {
         <h3>Welcome To</h3>
         <h1>{commonData.clubName}</h1>
         <p>{commonData.clubDesc}</p>
-        <Link className="explore-btn" href="/">
+        <Link className="explore-btn" href="/#about">
           Explore Now
         </Link>
       </div>
