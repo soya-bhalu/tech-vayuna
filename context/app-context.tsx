@@ -34,8 +34,8 @@ const contextInit: ActualAppContextType = {
     clubInsta: "tech_vayuna",
     clubLinkedin: "techvayuna",
     clubTwitter: "tech_vayuna",
-    phoneOne: "+919876543210",
-    phoneTwo: "+919876543212"
+    phoneOne: "+917200836551",
+    phoneTwo: "+919003062957"
   }
 };
 

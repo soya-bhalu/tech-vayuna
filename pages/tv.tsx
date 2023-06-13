@@ -25,7 +25,7 @@ export default function Tv(props: ClubLinksType) {
         <meta name="description" content={`${commonData.clubName} | ${commonData.aboutTv}`} />
       </Head>
       <section id="tv">
-        <h1>{commonData.clubName} Tv Talkies</h1>
+        <h1>{commonData.clubName} Talkies</h1>
 
         <TvLink data={props} />
         <TvAbout />

@@ -31,7 +31,7 @@ export default function Header() {
           About
         </Link>
         <Link href="/tv" onClick={handleClick}>
-          Tv
+          TV Talkies
         </Link>
         <Link href="/events" onClick={handleClick}>
           Events

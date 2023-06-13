@@ -13,6 +13,7 @@ export default function Footer() {
             <span>Site Map</span>
             <Link href="/">Home</Link>
             <Link href="/#about">About</Link>
+            <Link href="/#about">TV Talkies</Link>
             <Link href="/events">Events</Link>
             <Link href="/team">Team</Link>
           </div>
